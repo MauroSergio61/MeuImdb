@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb Clone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; 
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container { 
+            text-align: center; 
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 20px; color: #667eea; }
+        .search-form { 
+            display: flex; 
+            gap: 10px; 
+            margin: 20px 0; 
+            justify-content: center;
+        }
+        input { 
+            padding: 15px; 
+            border: 2px solid #ddd; 
+            border-radius: 25px; 
+            width: 300px; 
+            font-size: 16px;
+        }
+        button { 
+            padding: 15px 30px; 
+            background: #ff6b6b; 
+            color: white; 
+            border: none; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 16px;
+        }
+        button:hover { background: #ff5252; }
+        .error { 
+            background: #ff6b6b; 
+            color: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 IMDb Clone</h1>
+            <p>Consulte informações sobre qualquer filme</p>
+        </header>
+
+        <form action="/search" method="POST" class="search-form">
+            <input 
+                type="text" 
+                name="title" 
+                placeholder="Digite o nome do filme..." 
+                required
+            >
+            <button type="submit">Buscar</button>
+        </form>
+
+        <% if (typeof error !== 'undefined') { %>
+            <div class="error">
+                <%= error %>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
