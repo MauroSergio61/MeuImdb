@@ -3,6 +3,15 @@ const axios = require('axios');
 const path = require('path');
 require('dotenv').config();
 
+
+//validação
+if (!process.env.OMDB_API_KEY || process.env.OMDB_API_KEY === 'sua_chave_aqui') {
+    console.warn('⚠️  AVISO: Chave API não configurada!');
+    console.warn('   Crie um arquivo .env com OMDB_API_KEY=sua_chave_real');
+    console.warn('   Obtenha uma chave em: http://www.omdbapi.com/apikey.aspx');
+}
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
